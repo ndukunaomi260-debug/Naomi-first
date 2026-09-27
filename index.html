@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Flight Airways</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin:0;
+            background:#f4f6f9;
+        }
+
+        header{
+            background:#002244;
+            color:white;
+            text-align:center;
+            padding:30px;
+        }
+
+        nav{
+            background:#004080;
+            text-align:center;
+            padding:10px;
+        }
+
+        nav a{
+            color:white;
+            margin:15px;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            text-decoration: underline;
+        }
+
+        .container{
+            padding:20px;
+        }
+
+        /* SEARCH BOX */
+        .search-box{
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            margin-bottom:20px;
+            text-align:center;
+        }
+
+        input, select{
+            padding:10px;
+            margin:5px;
+            width:180px;
+        }
+
+        .service{
+            background:white;
+            margin:20px 0;
+            padding:20px;
+            border-radius:10px;
+        }
+
+        .service img{
+    width:250px;
+    height:250px;
+    object-fit:cover;
+    object-fit: centre;
+    border-radius:50%;
+    display:block;
+    margin:10px auto;
+}
+
+
+        .btn{
+            display:inline-block;
+            margin-top:10px;
+            padding:10px 20px;
+            background:#002244;
+            color:white;
+            text-decoration:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        .btn:hover{
+            background:#001122;
+        }
+
+        footer{
+            background:#002244;
+            color:white;
+            text-align:center;
+            padding:15px;
+        }
+
+        @media (max-width:768px){
+            nav a{
+                display:block;
+                margin:10px 0;
+            }
+
+            input{
+                width:90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Best Flight Airways</h1>
+    <p>Fly Beyond Limits — Comfort, Speed & Luxury</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="public.html">Public Flights</a>
+    <a href="private.html">Private Jets</a>
+    <a href="contact.html">Contact</a>
+    <a href="booking.html">Booking</a>
+</nav>
+
+<div class="container">
+
+    <!-- SEARCH FORM -->
+    <div class="search-box">
+        <h2>Search Flights</h2>
+
+        <form id="searchForm">
+            <input type="text" id="from" placeholder="From (e.g Nairobi)" required>
+            <input type="text" id="to" placeholder="To (e.g Dubai)" required>
+            <input type="date" id="date" required>
+
+            <select id="class">
+                <option>Economy</option>
+                <option>Business</option>
+                <option>First Class</option>
+            </select>
+
+            <br>
+            <button class="btn">Search</button>
+        </form>
+
+        <p id="result" style="margin-top:10px; font-weight:bold;"></p>
+    </div>
+
+    <h2>Our Services</h2>
+
+    <!-- Public Flights -->
+    <div class="service">
+        <h3>Public Airline Services</h3>
+        <img src="images/public.jpg" alt="Public Flights">
+        <p>
+            Affordable and reliable public flights connecting major cities worldwide.
+            Enjoy comfort, safety, and professional service on every journey.
+        </p>
+        <ul>
+            <li>Domestic & International Routes</li>
+            <li>Affordable Ticket Prices</li>
+            <li>In-flight Entertainment</li>
+            <li>Online Booking</li>
+        </ul>
+        <button class="btn book-btn">Book Flight</button>
+    </div>
+
+    <!-- Private Jets -->
+    <div class="service">
+        <h3>Private Jet Services</h3>
+        <img src="images/private.jpg" alt="Private Jet">
+        <p>
+            Experience ultimate luxury with our private jet services tailored for
+            executives, VIPs, and exclusive travel.
+        </p>
+        <ul>
+            <li>On-demand Flights</li>
+            <li>Luxury Interior</li>
+            <li>Personal Crew</li>
+            <li>Flexible Scheduling</li>
+        </ul>
+        <button class="btn book-btn">Book Private Jet</button>
+    </div>
+
+    <!-- Cargo -->
+    <div class="service">
+        <h3>Air Cargo Services</h3>
+        <img src="images/cargo.jpg" alt="Cargo">
+        <p>
+            Fast and secure cargo delivery services across the globe with
+            real-time tracking and guaranteed safety.
+        </p>
+        <button class="btn book-btn">Ship Now</button>
+    </div>
+
+    <!-- Charter -->
+    <div class="service">
+        <h3>Charter Flights</h3>
+        <img src="images/charter.jpg" alt="Charter">
+        <p>
+            Customized charter flights for business trips, tours, and special events.
+        </p>
+        <button class="btn book-btn">Request Charter</button>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Best Flight Airways | All Rights Reserved</p>
+</footer>
+
+<script>
+// SEARCH FUNCTION
+document.getElementById("searchForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const from = document.getElementById("from").value;
+    const to = document.getElementById("to").value;
+    const date = document.getElementById("date").value;
+    const flightClass = document.getElementById("class").value;
+
+    document.getElementById("result").innerText =
+        `Flights available from ${from} to ${to} on ${date} (${flightClass})`;
+});
+
+// BOOKING SYSTEM
+document.querySelectorAll(".book-btn").forEach(btn => {
+
+    btn.addEventListener("click", function(){
+
+        const service = this.parentElement.querySelector("h3").innerText;
+
+        const name = prompt("Enter your name:");
+        if(!name) return;
+
+        alert("Booking confirmed for " + service);
+
+        const phone = "254746473416";
+        const message = `Hello, my name is ${name}. I would like to book: ${service}`;
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+        window.open(url, "_blank");
+    });
+
+});
+</script>
+
+</body>
+</html>

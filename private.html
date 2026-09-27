@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Jets | Best Flight Airways</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin:0;
+            background:#f0f1f3;
+        }
+
+        header{
+            background:#001f3f;
+            color:rgb(236, 226, 226);
+            text-align:center;
+            padding:30px;
+        }
+
+        nav{
+            background:#003366;
+            text-align:center;
+            padding:10px;
+        }
+
+        nav a{
+            color:white;
+            margin:15px;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            text-decoration: underline;
+        }
+
+        .hero{
+            background:url('images/privatejet.jpg') no-repeat center/cover;
+            height:300px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:white;
+            text-shadow:2px 2px 6px black;
+        }
+
+        .container{
+            padding:20px;
+        }
+
+        .section{
+            background:white;
+            margin:20px 0;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .section img{
+            width: 250px;
+            height: 250px;
+            max-width:500px;
+            object-fit: cover;
+            border-radius: 50%;
+            display:block;
+            margin-bottom:10px;
+        }
+
+        .btn{
+            display:inline-block;
+            padding:10px 20px;
+            background:#001f3f;
+            color:rgb(243, 234, 234);
+            text-decoration:none;
+            border-radius:5px;
+            margin-top:10px;
+            cursor:pointer;
+        }
+
+        .btn:hover{
+            background:#000f1f;
+        }
+
+        footer{
+            background:#001f3f;
+            color:white;
+            text-align:center;
+            padding:15px;
+        }
+
+        @media (max-width:768px){
+            nav a{
+                display:block;
+                margin:10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Best Flight Airways</h1>
+    <p>Luxury Private Jet Services</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="public.html">Public Flights</a>
+    <a href="private.html">Private Jets</a>
+    <a href="contact.html">Contact</a>
+    <a href="booking.html">Booki</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <h2>Experience Luxury in the Sky</h2>
+</div>
+
+<div class="container">
+
+    <!-- Overview -->
+    <div class="section">
+        <h2>Why Choose Private Jets?</h2>
+        <p>
+            Enjoy exclusive travel with maximum comfort, privacy, and flexibility.
+            Our private jet services are tailored for business leaders, VIPs,
+            and individuals seeking premium travel experiences.
+        </p>
+    </div>
+
+    <!-- Charter Flights -->
+    <div class="section">
+        <h3>Private Charter Flights</h3>
+        <img src="images/charter.jpg" alt="Charter Jet">
+        <p>
+            Book a private jet tailored to your schedule. No delays, no crowds —
+            just seamless travel.
+        </p>
+        <ul>
+            <li>Flexible departure times</li>
+            <li>Global destinations</li>
+            <li>Exclusive privacy</li>
+        </ul>
+        <button class="btn book-btn">Book Charter</button>
+    </div>
+
+    <!-- Luxury Jets -->
+    <div class="section">
+        <h3>Luxury Executive Jets</h3>
+        <img src="images/luxuryjet.jpg" alt="Luxury Jet">
+        <p>
+            Experience top-tier luxury with fully equipped cabins, gourmet meals,
+            and premium comfort.
+        </p>
+        <ul>
+            <li>Luxury seating & beds</li>
+            <li>Onboard entertainment</li>
+            <li>Personalized service</li>
+        </ul>
+        <button class="btn book-btn">Book Luxury Jet</button>
+    </div>
+
+    <!-- Business Travel -->
+    <div class="section">
+        <h3>Corporate Travel</h3>
+        <img src="images/businessjet.jpg" alt="Business Jet">
+        <p>
+            Efficient and time-saving travel for executives and corporate teams.
+        </p>
+        <ul>
+            <li>Private meetings onboard</li>
+            <li>Fast check-in</li>
+            <li>Confidential environment</li>
+        </ul>
+        <button class="btn book-btn">Book Business Jet</button>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Best Flight Airways | All Rights Reserved</p>
+</footer>
+
+<script>
+// BOOKING SYSTEM
+document.querySelectorAll(".book-btn").forEach(btn => {
+
+    btn.addEventListener("click", function(){
+
+        const service = this.parentElement.querySelector("h3").innerText;
+
+        const name = prompt("Enter your name:");
+        if(!name) return;
+
+        alert("Booking confirmed for " + service);
+
+        const phone = "254780045533";
+        const message = `Hello, my name is ${name}. I would like to book: ${service}`;
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+        window.open(url, "_blank");
+    });
+
+});
+</script>
+
+</body>
+</html>

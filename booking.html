@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking | Best Flight Airways</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin:0;
+            background:#f4f6f9;
+        }
+
+        header{
+            background:#002244;
+            color:white;
+            text-align:center;
+            padding:30px;
+        }
+
+        nav{
+            background:#004080;
+            text-align:center;
+            padding:10px;
+        }
+
+        nav a{
+            color:white;
+            margin:15px;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            text-decoration: underline;
+        }
+
+        .container{
+            padding:20px;
+            max-width:800px;
+            margin:auto;
+        }
+
+        form{
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        input, select{
+            width:100%;
+            padding:10px;
+            margin:10px 0;
+        }
+
+        .btn{
+            background:#002244;
+            color:white;
+            padding:12px;
+            border:none;
+            cursor:pointer;
+            border-radius:5px;
+            width:100%;
+        }
+
+        .btn:hover{
+            background:#001122;
+        }
+
+        footer{
+            background:#002244;
+            color:white;
+            text-align:center;
+            padding:15px;
+            margin-top:20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Best Flight Airways</h1>
+    <p>Book Your Flight — Easy, Fast & Secure</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="public.html">Public Flights</a>
+    <a href="private.html">Private Jets</a>
+    <a href="booking.html">Booking</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<div class="container">
+
+    <h2>Flight Booking Form</h2>
+
+    <form id="bookingForm">
+
+        <h3>Passenger Information</h3>
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email Address" required>
+        <input type="tel" id="phone" placeholder="Phone Number" required>
+
+        <h3>Flight Details</h3>
+        <input type="text" id="from" placeholder="Departure City" required>
+        <input type="text" id="to" placeholder="Destination City" required>
+
+        <label>Departure Date</label>
+        <input type="date" id="departure" required>
+
+        <label>Return Date (Optional)</label>
+        <input type="date" id="return">
+
+        <select id="class">
+            <option>Economy</option>
+            <option>Business</option>
+            <option>First Class</option>
+        </select>
+
+        <select id="type">
+            <option>Public Flight</option>
+            <option>Private Jet</option>
+        </select>
+
+        <input type="number" id="passengers" placeholder="Number of Passengers" min="1" required>
+
+        <h3>Additional Requests</h3>
+        <input type="text" id="requests" placeholder="Special Requests (optional)">
+
+        <button class="btn">Confirm Booking</button>
+
+    </form>
+
+    <p id="response" style="text-align:center; font-weight:bold;"></p>
+
+</div>
+
+<footer>
+    <p>© 2026 Best Flight Airways | All Rights Reserved</p>
+</footer>
+
+<script>
+// BOOKING FUNCTION
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const from = document.getElementById("from").value;
+    const to = document.getElementById("to").value;
+    const departure = document.getElementById("departure").value;
+    const flightClass = document.getElementById("class").value;
+    const type = document.getElementById("type").value;
+    const passengers = document.getElementById("passengers").value;
+
+    document.getElementById("response").innerText =
+        "Booking submitted successfully!";
+
+    // WhatsApp integration
+    const phone = "254780045533";
+
+    const message = `Hello, I am ${name}.
+Flight Type: ${type}
+From: ${from}
+To: ${to}
+Departure: ${departure}
+Class: ${flightClass}
+Passengers: ${passengers}`;
+
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+});
+</script>
+
+</body>
+</html>

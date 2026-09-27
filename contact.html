@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Best Flight Airways</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin:0;
+            background:#f4f6f9;
+        }
+
+        header{
+            background:#002244;
+            color:white;
+            text-align:center;
+            padding:30px;
+        }
+
+        nav{
+            background:#004080;
+            padding:10px;
+            text-align:center;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin:15px;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            text-decoration:underline;
+        }
+
+        .hero{
+            background:url('images/contactbanner.jpg') no-repeat center/cover;
+            height:250px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            color:white;
+            text-shadow:2px 2px 6px black;
+        }
+
+        .container{
+            padding:20px;
+        }
+
+        .section{
+            background:white;
+            padding:20px;
+            margin-bottom:20px;
+            border-radius:10px;
+            box-shadow:0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .section h2{
+            color:#002244;
+        }
+
+        .contact-info p{
+            line-height:1.8;
+        }
+
+        iframe{
+            width:100%;
+            border:none;
+            border-radius:10px;
+        }
+
+        .social-links a{
+            display:inline-block;
+            margin:10px;
+            padding:10px 15px;
+            background:#002244;
+            color:white;
+            text-decoration:none;
+            border-radius:5px;
+        }
+
+        .social-links a:hover{
+            background:#001122;
+        }
+
+        /* LIVE CHAT */
+        .chat-box{
+            position:fixed;
+            bottom:20px;
+            right:20px;
+            width:300px;
+            background:white;
+            border-radius:10px;
+            box-shadow:0 2px 10px rgba(0,0,0,0.3);
+            overflow:hidden;
+        }
+
+        .chat-header{
+            background:#002244;
+            color:white;
+            padding:10px;
+            text-align:center;
+        }
+
+        .chat-messages{
+            height:250px;
+            overflow-y:auto;
+            padding:10px;
+            background:#f9f9f9;
+        }
+
+        .message{
+            margin:10px 0;
+            padding:8px;
+            border-radius:5px;
+        }
+
+        .bot{
+            background:#dbeeff;
+        }
+
+        .user{
+            background:#d4ffd4;
+            text-align:right;
+        }
+
+        .chat-input{
+            display:flex;
+        }
+
+        .chat-input input{
+            flex:1;
+            padding:10px;
+            border:none;
+            outline:none;
+        }
+
+        .chat-input button{
+            padding:10px;
+            border:none;
+            background:#002244;
+            color:white;
+            cursor:pointer;
+        }
+
+        footer{
+            background:#002244;
+            color:white;
+            text-align:center;
+            padding:15px;
+        }
+
+        @media (max-width:768px){
+            nav a{
+                display:block;
+                margin:10px 0;
+            }
+
+            .chat-box{
+                width:90%;
+                right:5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Best Flight Airways</h1>
+    <p>Your Trusted Airline for Public & Private Air Travel</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="public.html">Public Flights</a>
+    <a href="private.html">Private Jets</a>
+    <a href="contact.html">Contact</a>
+    <a href="booking.html">Booking</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <h2>Contact Best Flight Airways</h2>
+</div>
+
+<div class="container">
+
+    <!-- CONTACT DETAILS -->
+    <div class="section contact-info">
+        <h2>Get In Touch</h2>
+
+        <p><strong>Company:</strong> Best Flight Airways</p>
+        <p><strong>Phone:</strong> +254780045533</p>
+        <p><strong>Email:</strong> bestflightairways@gmail.com</p>
+        <p><strong>Location:</strong> Nairobi City, Kenya</p>
+        <p>
+            We provide premium public airline and private jet services with
+            comfort, safety, and world-class customer support.
+        </p>
+    </div>
+
+    <!-- MAP -->
+    <div class="section">
+        <h2>Our Location</h2>
+
+        <iframe 
+            src="https://maps.google.com/maps?q=Nairobi%20City&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            height="350">
+        </iframe>
+    </div>
+
+    <!-- SOCIAL LINKS -->
+    <div class="section">
+        <h2>Follow Us</h2>
+
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+            <a href="#">WhatsApp</a>
+        </div>
+    </div>
+
+</div>
+
+<!-- LIVE AI CHATBOX -->
+<div class="chat-box">
+
+    <div class="chat-header">
+        Best Flight AI Assistant
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+        <div class="message bot">
+            Hello 👋 Welcome to Best Flight Airways. How can I help you today?
+        </div>
+    </div>
+
+    <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Best Flight Airways | All Rights Reserved</p>
+</footer>
+
+<script>
+
+function sendMessage(){
+
+    const input = document.getElementById("userInput");
+    const message = input.value.trim();
+
+    if(message === "") return;
+
+    const chatMessages = document.getElementById("chatMessages");
+
+    // USER MESSAGE
+    const userDiv = document.createElement("div");
+    userDiv.className = "message user";
+    userDiv.innerText = message;
+
+    chatMessages.appendChild(userDiv);
+
+    // BOT RESPONSE
+    const botDiv = document.createElement("div");
+    botDiv.className = "message bot";
+
+    let response = "Thank you for contacting Best Flight Airways.";
+
+    if(message.toLowerCase().includes("booking")){
+        response = "You can book flights directly from our Home page.";
+    }
+
+    else if(message.toLowerCase().includes("private")){
+        response = "We offer luxury private jet services for VIP travel.";
+    }
+
+    else if(message.toLowerCase().includes("public")){
+        response = "Our public airline services operate both local and international flights.";
+    }
+
+    else if(message.toLowerCase().includes("contact")){
+        response = "You can reach us at +254780045533.";
+    }
+
+    else if(message.toLowerCase().includes("location")){
+        response = "We are located in Nairobi City, Kenya.";
+    }
+
+    setTimeout(() => {
+        botDiv.innerText = response;
+        chatMessages.appendChild(botDiv);
+
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }, 500);
+
+    input.value = "";
+}
+
+</script>
+
+</body>
+</html>

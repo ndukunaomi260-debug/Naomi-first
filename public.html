@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Flights | Best Flight Airways</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin:0;
+            background:#f4f6f9;
+        }
+
+        header{
+            background:#002244;
+            color:white;
+            text-align:center;
+            padding:30px;
+        }
+
+        nav{
+            background:#004080;
+            text-align:center;
+            padding:10px;
+        }
+
+        nav a{
+            color:white;
+            margin:15px;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            text-decoration: underline;
+        }
+
+        .hero{
+            background:url('images/public.jpg') no-repeat center/cover;
+            height:300px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:white;
+            text-shadow:2px 2px 5px black;
+        }
+
+        .container{
+            padding:20px;
+        }
+
+        .section{
+            background:white;
+            margin:20px 0;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .section img{
+            width: 250px;
+            height: 250px;
+            max-width:500px;
+            border-radius:50%;
+            display:block;
+            margin-bottom:10px;
+        }
+
+        .btn{
+            display:inline-block;
+            padding:10px 20px;
+            background:#002244;
+            color:white;
+            text-decoration:none;
+            border-radius:5px;
+            margin-top:10px;
+            cursor:pointer;
+        }
+
+        .btn:hover{
+            background:#001122;
+        }
+
+        footer{
+            background:#002244;
+            color:white;
+            text-align:center;
+            padding:15px;
+        }
+
+        @media (max-width:768px){
+            nav a{
+                display:block;
+                margin:10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Best Flight Airways</h1>
+    <p>Affordable & Reliable Public Airline Services</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="public.html">Public Flights</a>
+    <a href="private.html">Private Jets</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<!-- HERO SECTION -->
+<div class="hero">
+    <h2>Fly Anywhere, Anytime with Comfort</h2>
+</div>
+
+<div class="container">
+
+    <!-- Overview -->
+    <div class="section">
+        <h2>Why Choose Our Public Flights?</h2>
+        <p>
+            Best Flight Airways offers world-class public airline services designed to give you comfort,
+            safety, and affordability. Whether traveling locally or internationally, we ensure
+            a smooth and enjoyable journey.
+        </p>
+    </div>
+
+    <!-- Domestic Flights -->
+    <div class="section">
+        <h3>Domestic Flights</h3>
+        <img src="images/domestic.jpg" alt="Domestic Flights">
+        <p>
+            Fast and convenient travel across major cities. Enjoy flexible schedules,
+            affordable fares, and excellent customer service.
+        </p>
+        <ul>
+            <li>Daily flights between cities</li>
+            <li>Affordable ticket pricing</li>
+            <li>Comfortable seating</li>
+        </ul>
+        <button class="btn book-btn">Book Domestic Flight</button>
+    </div>
+
+    <!-- International Flights -->
+    <div class="section">
+        <h3>International Flights</h3>
+        <img src="images/international.jpg" alt="International Flights">
+        <p>
+            Travel across continents with our reliable international routes.
+            Experience luxury, safety, and efficiency.
+        </p>
+        <ul>
+            <li>Global destinations</li>
+            <li>In-flight meals & entertainment</li>
+            <li>Professional cabin crew</li>
+        </ul>
+        <button class="btn book-btn">Book International Flight</button>
+    </div>
+
+    <!-- Economy Class -->
+    <div class="section">
+        <h3>Economy Class</h3>
+        <img src="images/economy.jpg" alt="Economy Class">
+        <p>
+            Budget-friendly travel with comfort and quality service.
+        </p>
+        <button class="btn book-btn">Book Economy</button>
+    </div>
+
+    <!-- Business Class -->
+    <div class="section">
+        <h3>Business Class</h3>
+        <img src="images/business.jpg" alt="Business Class">
+        <p>
+            Premium comfort with spacious seating, priority boarding, and exclusive services.
+        </p>
+        <button class="btn book-btn">Book Business Class</button>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Best Flight Airways | All Rights Reserved</p>
+</footer>
+
+<script>
+// BOOKING SYSTEM
+document.querySelectorAll(".book-btn").forEach(btn => {
+
+    btn.addEventListener("click", function(){
+
+        const service = this.parentElement.querySelector("h3").innerText;
+
+        const name = prompt("Enter your name:");
+        if(!name) return;
+
+        alert("Booking confirmed for " + service);
+
+        const phone = "254780045533";
+        const message = `Hello, my name is ${name}. I would like to book: ${service}`;
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+        window.open(url, "_blank");
+    });
+
+});
+</script>
+
+</body>
+</html>
